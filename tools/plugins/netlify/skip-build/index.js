@@ -12,7 +12,6 @@ module.exports = {
         const latestCommit = 'HEAD';
 
         const projectHasChanged = checkIfProjectHasChanged(
-            currentProject,
             lastDeployedCommit,
             latestCommit
         );
@@ -27,15 +26,15 @@ module.exports = {
     }
 };
 
-function checkIfProjectHasChanged(currentProject, fromHash, toHash) {
+function checkIfProjectHasChanged(fromHash, toHash) {
     const execSync = require('child_process').execSync;
 
-    const getAffected = `[[ -z $(git diff --quiet ${fromHash} ${toHash} -- apps/${currentProject}/) ]] || echo 1`;
-    console.log('getAffected: ', getAffected);
+    const getAffected = `git diff ${fromHash} ${toHash} -- $(pwd)`;
     const output = execSync(getAffected, {
         shell: '/bin/bash'
-    }).toString();
-    console.log('output: ', `"${output}", typeof: "${typeof output}", result: ${Boolean(output)}`);
+    }).toString().trim();
+
+    console.log(getAffected);
 
     return Boolean(output);
 }
