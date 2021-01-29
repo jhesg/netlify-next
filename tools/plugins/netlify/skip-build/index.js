@@ -31,9 +31,11 @@ function checkIfProjectHasChanged(currentProject, fromHash, toHash) {
     const execSync = require('child_process').execSync;
 
     const getAffected = `[[ -z $(git diff --quiet ${fromHash} ${toHash} -- apps/${currentProject}/) ]] || echo 1`;
+    console.log('getAffected: ', getAffected);
     const output = execSync(getAffected, {
         shell: '/bin/bash'
     }).toString();
+    console.log('output: ', `"${output}", typeof: "${typeof output}", result: ${Boolean(output)}`);
 
     return Boolean(output);
 }
