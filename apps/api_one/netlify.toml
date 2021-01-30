@@ -1,0 +1,24 @@
+[build]
+  command   = "yarn build"
+  
+  functions = "functions"
+
+[context.production.environment]
+  NODE_ENV = "production"
+  CONTEXT_ACTIVE_ENV = "production"
+
+[dev]
+  port = 3002
+  autoLaunch = false
+
+[context.dev.environment]
+  NODE_ENV = "development"
+  CONTEXT_ACTIVE_ENV = "development"
+
+[context.branch-deploy]
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+
+[[plugins]]
+  package = "../../tools/plugins/netlify/skip-build"
