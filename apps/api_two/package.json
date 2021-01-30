@@ -4,6 +4,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "yarn start:lambda",
+    "build": "yarn build:lambda && yarn build:redirects",
+    "build:redirects": "mkdir -p build && cp _redirects build/_redirects",
+    "dev": "NODE_ENV=development yarn start:lambda --port 3002",
+    "start:lambda": "netlify-lambda serve src/lambda --config ./webpack.functions.js",
+    "build:lambda": "netlify-lambda build src/lambda --config ./webpack.functions.js"
+  },
   "dependencies": {
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
@@ -22,12 +30,5 @@
   },
   "devDependencies": {
     "prettier": "^2.2.1"
-  },
-  "scripts": {
-    "start": "yarn start:lambda",
-    "build": "yarn build:lambda && cp _redirects built-lambda/_redirects",
-    "dev": "NODE_ENV=development yarn start:lambda --port 3002",
-    "start:lambda": "netlify-lambda serve src/lambda --config ./webpack.functions.js",
-    "build:lambda": "netlify-lambda build src/lambda --config ./webpack.functions.js"
   }
 }

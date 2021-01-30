@@ -1,7 +1,8 @@
 [build]
   command   = "yarn build"
   
-  functions = "built-lambda"
+  functions = "built-functions"
+  publish   = "build"
 
 [context.production.environment]
   NODE_ENV = "production"

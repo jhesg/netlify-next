@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "cp _redirects functions/_redirects && exit 0"
+    "build": "echo \"Warning: no build specified\" && exit 0"
   },
   "dependencies": {
     "@graphql-tools/schema": "^7.1.2",

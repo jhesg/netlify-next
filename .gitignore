@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/**/node_modules/**
+/**/node_modules
 /.pnp
 .pnp.js
 
@@ -12,10 +12,11 @@
 # next.js
 **/.next/
 **/out/
-**/built-lambda/
+**/built-functions/
 
 # production
 /build
+**/build
 
 # misc
 .DS_Store
