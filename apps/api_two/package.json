@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn start:lambda",
-    "build": "yarn build:lambda && yarn build:redirects",
-    "build:redirects": "mkdir -p build && cp _redirects build/_redirects",
+    "build": "yarn build:lambda",
     "dev": "NODE_ENV=development yarn start:lambda --port 3002",
     "start:lambda": "netlify-lambda serve src/lambda --config ./webpack.functions.js",
     "build:lambda": "netlify-lambda build src/lambda --config ./webpack.functions.js"
