@@ -16,9 +16,15 @@ const typeDefs = `
     votes: Int
   }
 
+  type Places {
+    id: Int!
+    name: String
+  }
+
   # the schema allows the following query:
   type Query {
     posts: [Post]
+    places: [Places]
     author(id: Int!): Author
   }
 

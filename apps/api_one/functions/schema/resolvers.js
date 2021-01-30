@@ -6,6 +6,13 @@ const authors = [
   { id: 3, firstName: 'Mikhail', lastName: 'Novikov' },
 ];
 
+const places = [
+  { id: 1, name: 'Place 1' },
+  { id: 2, name: 'Place 2' },
+  { id: 3, name: 'Place 3' },
+  { id: 4, name: 'Place 4' },
+];
+
 const posts = [
   { id: 1, authorId: 1, title: 'Introduction to GraphQL', votes: 2 },
   { id: 2, authorId: 2, title: 'Welcome to Meteor', votes: 3 },
@@ -16,6 +23,7 @@ const posts = [
 const resolvers = {
   Query: {
     posts: () => posts,
+    places: () => places,
     author: (_, { id }) => find(authors, { id }),
   },
 
