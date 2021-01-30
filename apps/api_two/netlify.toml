@@ -1,0 +1,41 @@
+[build]
+  command               = "yarn build"
+  functions             = "built-functions"
+
+[context.production.environment]
+  NODE_ENV              = "production"
+  CONTEXT_ACTIVE_ENV    = "production"
+
+[dev]
+  port                  = 3002
+  autoLaunch            = false
+
+[context.dev.environment]
+  NODE_ENV              = "development"
+  CONTEXT_ACTIVE_ENV    = "development"
+
+[context.branch-deploy]
+
+[context.branch-deploy.environment]
+  NODE_ENV              = "development"
+
+[[plugins]]
+  package               = "../../tools/plugins/netlify/skip-build"
+
+[[redirects]]
+  from                  = "/graphql"
+  to                    = "/.netlify/functions/graphql"
+  status                = 200
+  force                 = true
+
+[[redirects]]
+  from                  = "/joke"
+  to                    = "/.netlify/functions/joke"
+  status                = 200
+  force                 = true
+
+[[redirects]]
+  from                  = "/hello"
+  to                    = "/.netlify/functions/hello"
+  status                = 200
+  force                 = true
